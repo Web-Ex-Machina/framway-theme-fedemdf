@@ -1,0 +1,9 @@
+@import '../../../emails/emails.scss';
+#header{
+  & #logo{
+    & img{ width: auto; height: 120px;
+      @include media-max(md){width: auto !important;}
+      @include media-max(xs){width: auto !important; max-width: 80%;}
+    }
+  }
+}

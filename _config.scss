@@ -1,0 +1,151 @@
+// Primary vars
+$spacing: 30px;
+$radius: 15px;
+
+$colors: (
+  'redLogo': #ad1e23,
+  'red': #d12227,
+  'blue': #2e3c60,
+  'orange': #bb886c,
+  'green': #5cb85c,
+  'darkblue': #0a1d29,
+  'gold': #edbe5f,
+  'black': #000000,
+  'blacklight': #111414,
+  'blacklighter': #222222,
+  'greystronger': #424041,
+  'greystrong': #535052,
+  'grey': #7A7778,
+  'greylight': #DDDDDD,
+  'greylighter': #EEEEEE,
+  'white': #ffffff,
+  'none': transparent,
+);
+@function color($color) {@return map-get($colors, '#{$color}'); }
+
+$primary: color(red);
+$secondary: color(blue);
+$tertiary: color(orange);
+
+$border-default-size : 2px;
+$border-default-color : color(greylight);
+
+// STYLING VARS
+// structure
+$body: (
+  'background': color(white),
+  'font-color': color(greystronger),
+  'font-size': 20px,
+  'title-font-color': color(greystronger),
+);
+@function body($property) {@return map-get($body, '#{$property}'); }
+
+$header: (
+  'background': color(white),
+  'font-color': color(greystronger),
+  'font-size': body(font-size),
+);
+@function header($property) {@return map-get($header, '#{$property}'); }
+
+$footer: (
+  'background': color(none),
+  'font-color': color(greystronger),
+  'font-size': body(font-size),
+);
+@function footer($property) {@return map-get($footer, '#{$property}'); }
+
+// inputs
+$input: (
+  'background': color(none),
+  'font-color': color(greystronger),
+  'border-color': color(red),
+  'border-size': 1px ,
+  'placeholder-font-color': color(grey),
+  'radius': false,
+);
+@function input($property) {@return map-get($input, '#{$property}'); }
+
+// inputs focus
+$input-focus: (
+  'background': input(background),
+  'font-color': input(font-color),
+  'border-color': input(border-color),
+);
+@function input-focus($property) {@return map-get($input-focus, '#{$property}'); }
+
+// inputs validations
+$input-valid: (
+  'background': input(background),
+  'font-color': input(font-color),
+  'border-color': input(border-color),
+);
+@function input-valid($property) {@return map-get($input-valid, '#{$property}'); }
+
+$input-invalid: (
+  'background': input(background),
+  'font-color': input(font-color),
+  'border-color': input(border-color),
+);
+@function input-invalid($property) {@return map-get($input-invalid, '#{$property}'); }
+
+// links
+$link: (
+  'font-color': color(red),
+  'font-color-hover': color(red),
+  'font-color-focus': color(red),
+);
+@function link($property) {@return map-get($link, '#{$property}'); }
+
+// buttons
+$btn: (
+  'background': body(font-color),
+  'font-color': body(background),
+  'border-size': $border-default-size ,
+  'radius': true,
+  'extend': '.btn-bg-red',
+);
+@function btn($property) {@return map-get($btn, '#{$property}'); }
+
+// Responsive vars
+$breakpoints: (
+  'xl' : 1400px,
+  'lg' : 1200px,
+  'md' : 992px,
+  'sm' : 768px,
+  'xs' : 620px,
+  'xxs' : 520px,
+);
+@function breakpoint($breakpoint) {@return map-get($breakpoints, '#{$breakpoint}'); }
+
+// Configuration booleans
+$enable-bg: true;
+$enable-bg-extended: false;
+$enable-bd: true;
+
+// exportation
+:export {
+  radius: $radius;
+  spacing: $spacing;
+  border-default-size: $border-default-size ;
+  border-default-color: $border-default-color ;
+  primary: $primary ;
+  secondary: $secondary ;
+  tertiary: $tertiary ;
+
+  colors: #{$colors};
+  breakpoints: #{$breakpoints};
+  body: #{$body};
+  header: #{$header};
+  footer: #{$footer};
+  input: #{$input};
+  input-focus: #{$input-focus};
+  input-valid: #{$input-valid};
+  input-invalid: #{$input-invalid};
+  link: #{$link};
+  btn: #{$btn};
+
+  enable-bg: $enable-bg;
+  enable-bg-extended: $enable-bg-extended;
+  enable-bd: $enable-bd;
+}
+
