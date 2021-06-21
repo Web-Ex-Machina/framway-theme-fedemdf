@@ -249,10 +249,10 @@ html{
       font-weight: bold;
     }
   }
-  @extend
-  .ft-white,
-  .title--4
-  !optional;
+  &:not([class*=ft-]){
+    @extend .ft-white;
+  }
+  @extend .title--4 !optional;
   &.content__bg--none{text-shadow: 1px 1px 4px rgba(0,0,0,.8); }
 }
 
@@ -539,3 +539,24 @@ html{
 }
 .timeline__item__title{font-weight: bold;}
 
+
+h2:empty{display: none;}
+.ce_rsce_gridGallery.gap-2 .d-grid{ gap: $spacing*2;}
+
+// LANDING PAGE BORDEAUX
+.lp--bordeaux{
+  .heroFW .h2, 
+  .heroFW.title--4 .h2, 
+  .heroFW.title--4 h2, 
+  .heroFW h2{font-weight: 400; font-size: 2rem;padding: 0.5em 1em; max-width: 1000px;
+    &:empty{display: none;}
+  }
+
+  .headerFW .headerFW__nav .headerFW__nav__inline>ul>li .fa-heart, 
+  .headerFW.stick+.headerFW .headerFW__nav .headerFW__nav__inline>ul>li .fa-heart{position: relative; top: auto; right: auto; font-size: inherit; margin-left: 0.5em; }
+
+  .headerFW .headerFW__headbanner, 
+  .headerFW.stick+.headerFW .headerFW__headbanner{padding: 0;}
+  .headerFW .headerFW__headbanner #logo, 
+  .headerFW.stick+.headerFW .headerFW__headbanner #logo{width: 100%;}
+}
