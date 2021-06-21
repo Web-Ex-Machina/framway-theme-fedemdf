@@ -98,8 +98,8 @@ $link: (
 
 // buttons
 $btn: (
-  'background': body(font-color),
-  'font-color': body(background),
+  'background': $primary,
+  'font-color': color(white),
   'border-size': $border-default-size ,
   'radius': true,
   'extend': '.btn-bg-red',
