@@ -35,6 +35,30 @@ html{
         &.active,
         &.trail{border-color: color(red); font-weight: 300; }
       }
+      &>ul{transform: translateX(-50%) translateY(0);top: 100%;} // fix for ul hover flickering
+      &>ul>li.submenu{ position: relative;
+        &:after{
+          content: "";
+          display: block;
+          border: 0.25em solid currentColor;
+          border-bottom-right-radius: 2px;
+          border-left: 0;
+          border-top: 0;
+          bottom: 0;
+          height: 1em;
+          width: 1em;
+          transform: rotate(-45deg);
+          transition: all .4s;
+          border-bottom-right-radius: 0.125em;
+          position: absolute;
+          right: 0.75em;
+          opacity: 0.15;
+          top: 50%;
+          margin-top: -0.5em;
+          transition: opacity 0.4s;
+        }
+        &:hover:after{opacity: 0.25;}
+      }
       &>:not(ul){padding: 0.5rem 1rem; line-height: 1.2; font-weight: 300;
         @include media-max(lg){padding: 0.6rem;}
       }
@@ -75,6 +99,7 @@ html{
 .headerFW .headerFW__nav .headerFW__nav__inline>ul li>*,
 .headerFW .headerFW__nav .headerFW__nav__inline>ul li>:focus,
 .headerFW .headerFW__nav .headerFW__nav__inline>ul li>:hover{font-weight: 300; }
+.headerFW__nav__toggler{user-select: none;}
 
 
 .page_donation .headerFW{ justify-content: flex-start;
@@ -288,7 +313,7 @@ html{
   &>div.right{
     &>div:not(:last-child){margin-bottom: $spacing*2;}
   }
-  & .contact{padding: 2rem 3rem; width: fit-content; margin: auto;
+  & .contact{padding: 2rem 3rem; width: -moz-fit-content; width: fit-content; margin: auto;
     @include media-max(md){padding: 1rem 1.5rem;}
     & a{color: inherit;}
     & table tr{
@@ -387,7 +412,7 @@ html{
     }
   }
   & .fixed_amount{ color: $tertiary; display: flex; justify-content: space-around; margin-bottom: $spacing; flex-wrap: wrap;
-    & .amount{ border: 4px solid $tertiary; margin: .5rem; font-size: 1.2rem; border-radius: 3rem; width: 3.5rem; height: 3.5rem; text-align: center; font-style: normal; line-height: 3rem; font-weight: 700; display: block; cursor:pointer;flex-shrink: 0; transition: opacity 0.4s;}
+    & .amount{ border: 4px solid $tertiary; margin: .5rem; font-size: 1.2rem; border-radius: 3rem; width: 5.5rem; height: 5.5rem; text-align: center; font-style: normal; line-height: 5rem; font-weight: 700; display: block; cursor:pointer;flex-shrink: 0; transition: opacity 0.4s;}
     &.selected{
       & .amount:not(.selected){opacity: 0.3;}
       & .amount:hover{opacity: 1;}
@@ -424,7 +449,7 @@ html{
     &+.legend{@extend .w-full;}
   }
   & .map__list{position: absolute; right: 0;}
-  & .map__list--custom{position: absolute; right: 0; bottom: 0;  width: 350px; max-width: 100%; font-size: 0.8em;
+  & .map__list--custom{position: absolute; right: 0; bottom: 0;  width: 350px; max-width: 100%; font-size: 0.8em; max-height: 100%; overflow: auto;
     & .map__list__item{padding: 1rem 1.5rem; background: rgba(color(white),0.7);margin-top: $spacing/2;
       &.categories{
         & ul{padding: 0;}
@@ -545,6 +570,7 @@ h2:empty{display: none;}
 
 // LANDING PAGE BORDEAUX
 .lp--bordeaux{
+  #logo{cursor: pointer;}
   .heroFW .h2, 
   .heroFW.title--4 .h2, 
   .heroFW.title--4 h2, 
@@ -557,6 +583,9 @@ h2:empty{display: none;}
 
   .headerFW .headerFW__headbanner, 
   .headerFW.stick+.headerFW .headerFW__headbanner{padding: 0;}
-  .headerFW .headerFW__headbanner #logo, 
-  .headerFW.stick+.headerFW .headerFW__headbanner #logo{width: 100%;}
+  .headerFW:not(.stick) .headerFW__headbanner #logo{width: 100%;}
+
+  #timerWrapper{width: 200px;position: relative;margin-bottom: 1em;}
+  #timerText{position: absolute; top: 0; left: 0; margin: auto; right: 0; bottom: 0; display: block; width: -moz-fit-content; width: fit-content; height: -moz-fit-content; height: fit-content; display: flex;flex-direction: column;justify-content: center; color: white; line-height: 1; font-size: 1.2rem; text-align: center; padding-left: 12px; padding-top: 6px;}
+  #timerNbDays{ display: block; font-size: 2rem; font-weight: bold;}
 }

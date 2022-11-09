@@ -1,7 +1,7 @@
 @import '../../../emails/emails.scss';
 #header{
   & #logo{
-    & img{ width: auto; height: 120px;
+    & img{ width: auto; height: 150px;
       @include media-max(md){width: auto !important;}
       @include media-max(xs){width: auto !important; max-width: 80%;}
     }

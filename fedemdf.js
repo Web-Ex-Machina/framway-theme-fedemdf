@@ -15,6 +15,14 @@ window.addEventListener("load",function(){
     ],
     showLabel : false
   });
+
+  if ($('#timerNbDays').length) {
+    var $el = $('#timerNbDays');
+    var endDate = new Date( parseInt($el.attr('data-tstamp')) * 1000 );
+    var startDate = new Date();
+    $el.text(Math.round((endDate.getTime() - startDate.getTime()) / (1000*3600*24)));
+  }
+
 });
 
 $(function(){
@@ -76,4 +84,8 @@ function backToTop(){
             }, scroll_top_duration
         );
     });
+
+    $('body.lp--bordeaux #logo').on('click',function(){
+      $btt.trigger('click');
+    })
   }
